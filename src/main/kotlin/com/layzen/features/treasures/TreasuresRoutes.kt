@@ -8,7 +8,7 @@ import io.ktor.server.response.respond
 import io.ktor.server.routing.Routing
 import org.koin.ktor.ext.inject
 
-fun Routing.treasureRoutes() {
+fun Routing.routesTreasures() {
     val controller: TreasuresController by inject()
 
     get<AllTreasures> {

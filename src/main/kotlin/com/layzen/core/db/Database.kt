@@ -1,5 +1,6 @@
 package com.layzen.core.db
 
+import com.layzen.features.crowns.CrownItem
 import com.layzen.features.gear_score.GearScoreItem
 import com.layzen.features.treasures.TreasureItem
 import org.litote.kmongo.coroutine.CoroutineClient
@@ -12,4 +13,5 @@ interface Database {
     val database: CoroutineDatabase
     val treasuresCollection: CoroutineCollection<TreasureItem>
     val gearScoreCollection: CoroutineCollection<GearScoreItem>
+    val crownsCollection: CoroutineCollection<CrownItem>
 }

@@ -1,6 +1,7 @@
 package com.layzen.core.db
 
 import com.layzen.core.db.config.DatabaseConfig
+import com.layzen.features.crowns.CrownItem
 import com.layzen.features.gear_score.GearScoreItem
 import com.layzen.features.treasures.TreasureItem
 import org.litote.kmongo.coroutine.CoroutineClient
@@ -25,4 +26,7 @@ class DatabaseImpl(private val databaseConfig: DatabaseConfig) : Database {
 
     override val gearScoreCollection: CoroutineCollection<GearScoreItem>
         get() = database.getCollection("Gear Score")
+
+    override val crownsCollection: CoroutineCollection<CrownItem>
+        get() = database.getCollection("Crowns")
 }

@@ -10,7 +10,7 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-val gearScoreModules = module {
+val moduleGearScore = module {
     singleOf(::GearScoreControllerImpl) bind GearScoreController::class
     singleOf(::GearScoreRepositoryImpl) bind GearScoreRepository::class
     singleOf(::GearScoreServiceImpl) bind GearScoreService::class

@@ -10,7 +10,7 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-val coreModules = module {
+val moduleCore = module {
     singleOf(::DatabaseImpl) bind Database::class
     singleOf(::DatabaseConfigImpl) bind DatabaseConfig::class
     singleOf(::ExceptionHandlerImpl) bind ExceptionHandler::class

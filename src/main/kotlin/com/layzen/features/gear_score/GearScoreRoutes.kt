@@ -10,7 +10,7 @@ import io.ktor.server.response.respond
 import io.ktor.server.routing.Routing
 import org.koin.ktor.ext.inject
 
-fun Routing.gearScoreRoutes() {
+fun Routing.routesGearScore() {
     val controller: GearScoreController by inject()
 
     get<AllGearScoreItems> {

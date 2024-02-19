@@ -10,7 +10,7 @@ import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
-val treasuresModule = module {
+val moduleTreasures = module {
     singleOf(::TreasuresControllerImpl) bind TreasuresController::class
     singleOf(::TreasuresRepositoryImpl) bind TreasuresRepository::class
     singleOf(::TreasuresServiceImpl) bind TreasuresService::class

@@ -15,8 +15,11 @@ class DatabaseImpl(private val databaseConfig: DatabaseConfig) : Database {
     override val dbName: String
         get() = databaseConfig.databaseName
 
+    override val clientConnection: String
+        get() = "mongodb://mongodb:27017"
+
     override val mongoClient: CoroutineClient
-        get() = KMongo.createClient().coroutine
+        get() = KMongo.createClient(clientConnection).coroutine
 
     override val database: CoroutineDatabase
         get() = mongoClient.getDatabase(databaseConfig.databaseName)

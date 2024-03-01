@@ -9,6 +9,7 @@ import org.litote.kmongo.coroutine.CoroutineDatabase
 
 interface Database {
     val dbName: String
+    val clientConnection: String
     val mongoClient: CoroutineClient
     val database: CoroutineDatabase
     val treasuresCollection: CoroutineCollection<TreasureItem>

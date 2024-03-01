@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+
+  ktor:
+    image: layzen/the-dark-side-bot:latest
+    container_name: backend-container
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    restart: always
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-container
+    ports:
+      - "27017:27017"
+    restart: always
+    volumes:
+      - type: volume
+        source: ktor-starter-mongodb-volume
+        target: /data/db
+
+volumes:
+  ktor-starter-mongodb-volume:

@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "com.layzen"
-version = "0.0.1"
+version = "0.0.4"
 
 application {
     mainClass.set("io.ktor.server.netty.EngineMain")
@@ -28,7 +28,7 @@ repositories {
 
 ktor {
     fatJar {
-        archiveFileName.set("com.layzen.ktor-restapi-$version-all.jar")
+        archiveFileName.set("the_darkside_bot_server-$version.jar")
     }
 }
 

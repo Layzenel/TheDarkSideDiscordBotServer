@@ -1,10 +1,7 @@
 package com.layzen.features.treasures
 
-import org.bson.codecs.pojo.annotations.BsonId
-import org.bson.types.ObjectId
-
 data class TreasureItem(
-    @BsonId val treasureId: String = ObjectId().toString(),
+    val treasureId: String,
     val name: String,
     val description: String,
     val guideUrl: String,

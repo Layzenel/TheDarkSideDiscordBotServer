@@ -1,9 +1,10 @@
 package com.layzen.core.db
 
 import com.layzen.core.db.config.DatabaseConfig
-import com.layzen.features.crowns.CrownItem
-import com.layzen.features.gear_score.GearScoreItem
-import com.layzen.features.treasures.TreasureItem
+import com.layzen.core.db.models.AlchemyItemDto
+import com.layzen.core.db.models.CrownItemDto
+import com.layzen.core.db.models.GearScoreItemDto
+import com.layzen.core.db.models.TreasureItemDto
 import org.litote.kmongo.coroutine.CoroutineClient
 import org.litote.kmongo.coroutine.CoroutineCollection
 import org.litote.kmongo.coroutine.CoroutineDatabase
@@ -19,17 +20,20 @@ class DatabaseImpl(private val databaseConfig: DatabaseConfig) : Database {
         get() = "mongodb://mongodb:27017"
 
     override val mongoClient: CoroutineClient
-        get() = KMongo.createClient(clientConnection).coroutine
+        get() = KMongo.createClient().coroutine
 
     override val database: CoroutineDatabase
         get() = mongoClient.getDatabase(databaseConfig.databaseName)
 
-    override val treasuresCollection: CoroutineCollection<TreasureItem>
+    override val collectionTreasures: CoroutineCollection<TreasureItemDto>
         get() = database.getCollection("Treasures")
 
-    override val gearScoreCollection: CoroutineCollection<GearScoreItem>
+    override val collectionGearScore: CoroutineCollection<GearScoreItemDto>
         get() = database.getCollection("Gear Score")
 
-    override val crownsCollection: CoroutineCollection<CrownItem>
+    override val collectionCrowns: CoroutineCollection<CrownItemDto>
         get() = database.getCollection("Crowns")
+
+    override val collectionAlchemy: CoroutineCollection<AlchemyItemDto>
+        get() = database.getCollection("Alchemy")
 }

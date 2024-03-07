@@ -1,8 +1,9 @@
 package com.layzen.core.db
 
-import com.layzen.features.crowns.CrownItem
-import com.layzen.features.gear_score.GearScoreItem
-import com.layzen.features.treasures.TreasureItem
+import com.layzen.core.db.models.AlchemyItemDto
+import com.layzen.core.db.models.CrownItemDto
+import com.layzen.core.db.models.GearScoreItemDto
+import com.layzen.core.db.models.TreasureItemDto
 import org.litote.kmongo.coroutine.CoroutineClient
 import org.litote.kmongo.coroutine.CoroutineCollection
 import org.litote.kmongo.coroutine.CoroutineDatabase
@@ -12,7 +13,8 @@ interface Database {
     val clientConnection: String
     val mongoClient: CoroutineClient
     val database: CoroutineDatabase
-    val treasuresCollection: CoroutineCollection<TreasureItem>
-    val gearScoreCollection: CoroutineCollection<GearScoreItem>
-    val crownsCollection: CoroutineCollection<CrownItem>
+    val collectionTreasures: CoroutineCollection<TreasureItemDto>
+    val collectionGearScore: CoroutineCollection<GearScoreItemDto>
+    val collectionCrowns: CoroutineCollection<CrownItemDto>
+    val collectionAlchemy: CoroutineCollection<AlchemyItemDto>
 }

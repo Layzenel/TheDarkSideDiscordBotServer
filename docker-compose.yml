@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   ktor:
-    image: layzen/the-dark-side-bot:latest
+    image: layzen/the-dark-side-bot:0.0.5
     container_name: backend-container
     build: .
     ports:

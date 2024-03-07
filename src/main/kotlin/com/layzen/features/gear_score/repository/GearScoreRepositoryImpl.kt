@@ -1,6 +1,8 @@
 package com.layzen.features.gear_score.repository
 
 import com.layzen.core.BaseResponse
+import com.layzen.core.db.models.toDto
+import com.layzen.core.db.models.toModel
 import com.layzen.core.error_handler.ExceptionHandler
 import com.layzen.features.gear_score.GearScoreItem
 import com.layzen.features.gear_score.service.GearScoreService
@@ -12,18 +14,18 @@ class GearScoreRepositoryImpl(
 ) : GearScoreRepository {
 
     override suspend fun getAllGearScoreItems(): BaseResponse<Any> {
-        val gearScoreItems = gearScoreService.getAllGearScoreItems()
+        val gearScoreItems = gearScoreService.getAllGearScoreItems().map { it.toModel() }
         return BaseResponse.SuccessResponse(statusCode = HttpStatusCode.OK, data = gearScoreItems)
     }
 
     override suspend fun addGearScoreItem(gearScoreItem: GearScoreItem): BaseResponse<Any> {
-        if (gearScoreService.addGearScoreItem(gearScoreItem)) {
+        if (gearScoreService.addGearScoreItem(gearScoreItem.toDto())) {
             return BaseResponse.SuccessResponse(statusCode = HttpStatusCode.OK, data = true)
         } else throw exceptionHandler.respondGenericException()
     }
 
     override suspend fun updateGearScoreItem(gearScoreId: String, gearScoreItem: GearScoreItem): BaseResponse<Any> {
-        if (gearScoreService.updateGearScoreItem(gearScoreId, gearScoreItem)) {
+        if (gearScoreService.updateGearScoreItem(gearScoreId, gearScoreItem.toDto())) {
             return BaseResponse.SuccessResponse(statusCode = HttpStatusCode.OK, data = true)
         } else throw exceptionHandler.respondNotFoundException("Gear score item not found")
     }

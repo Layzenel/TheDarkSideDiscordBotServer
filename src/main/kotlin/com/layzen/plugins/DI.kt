@@ -2,6 +2,7 @@ package com.layzen.plugins
 
 import com.layzen.core.moduleCore
 import com.layzen.features.alchemy.moduleAlchemy
+import com.layzen.features.ancient_anvil.moduleAncientAnvil
 import com.layzen.features.crowns.moduleCrowns
 import com.layzen.features.gear_score.moduleGearScore
 import com.layzen.features.treasures.moduleTreasures
@@ -16,5 +17,6 @@ fun Application.configureKoin() {
         modules(moduleGearScore)
         modules(moduleCrowns)
         modules(moduleAlchemy)
+        modules(moduleAncientAnvil)
     }
 }

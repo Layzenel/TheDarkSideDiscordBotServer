@@ -5,7 +5,7 @@ import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 
 data class TreasureItemDto(
-    @BsonId val treasureId: String = ObjectId().toString(),
+    @BsonId val treasureId: ObjectId = ObjectId(),
     val name: String,
     val description: String,
     val guideUrl: String,
@@ -17,7 +17,7 @@ data class TreasureItemDto(
 )
 
 fun TreasureItemDto.toModel(): TreasureItem = TreasureItem(
-    treasureId = treasureId,
+    treasureId = treasureId.toString(),
     name = name,
     description = description,
     guideUrl = guideUrl,

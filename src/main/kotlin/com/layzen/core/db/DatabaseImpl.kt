@@ -2,6 +2,7 @@ package com.layzen.core.db
 
 import com.layzen.core.db.config.DatabaseConfig
 import com.layzen.core.db.models.AlchemyItemDto
+import com.layzen.core.db.models.AncientAnvilDto
 import com.layzen.core.db.models.CrownItemDto
 import com.layzen.core.db.models.GearScoreItemDto
 import com.layzen.core.db.models.TreasureItemDto
@@ -20,7 +21,7 @@ class DatabaseImpl(private val databaseConfig: DatabaseConfig) : Database {
         get() = "mongodb://mongodb:27017"
 
     override val mongoClient: CoroutineClient
-        get() = KMongo.createClient().coroutine
+        get() = KMongo.createClient(clientConnection).coroutine
 
     override val database: CoroutineDatabase
         get() = mongoClient.getDatabase(databaseConfig.databaseName)
@@ -36,4 +37,7 @@ class DatabaseImpl(private val databaseConfig: DatabaseConfig) : Database {
 
     override val collectionAlchemy: CoroutineCollection<AlchemyItemDto>
         get() = database.getCollection("Alchemy")
+
+    override val collectionAncientAnvil: CoroutineCollection<AncientAnvilDto>
+        get() = database.getCollection("AncientAnvil")
 }

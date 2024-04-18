@@ -1,6 +1,7 @@
 package com.layzen.plugins
 
 import com.layzen.features.alchemy.routesAlchemy
+import com.layzen.features.ancient_anvil.routesAncientAnvil
 import com.layzen.features.crowns.routesCrowns
 import com.layzen.features.gear_score.routesGearScore
 import com.layzen.features.treasures.routesTreasures
@@ -16,5 +17,6 @@ fun Application.configureRouting() {
         routesGearScore()
         routesTreasures()
         routesAlchemy()
+        routesAncientAnvil()
     }
 }

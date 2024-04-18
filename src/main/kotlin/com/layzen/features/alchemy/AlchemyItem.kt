@@ -5,7 +5,8 @@ data class AlchemyItem(
     val name: String,
     val effect: String,
     val type: AlchemyType,
-    val group: AlchemyGroup
+    val group: AlchemyGroup,
+    val bdoCodexId: String
 )
 
 enum class AlchemyType(val value: String) {

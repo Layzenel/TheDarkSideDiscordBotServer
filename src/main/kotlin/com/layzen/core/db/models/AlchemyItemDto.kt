@@ -7,11 +7,12 @@ import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 
 data class AlchemyItemDto(
-    @BsonId val alchemyId: String = ObjectId().toString(),
+    @BsonId val alchemyId: ObjectId = ObjectId(),
     val name: String,
     val effect: String,
     val type: AlchemyTypeDto,
-    val group: AlchemyGroupDto
+    val group: AlchemyGroupDto,
+    val bdoCodexId: String
 )
 
 enum class AlchemyTypeDto(val value: String) {
@@ -45,16 +46,18 @@ fun AlchemyGroup.toDto(): AlchemyGroupDto = when(this) {
 }
 
 fun AlchemyItemDto.toModel(): AlchemyItem = AlchemyItem(
-    alchemyId = alchemyId,
+    alchemyId = alchemyId.toString(),
     name = name,
     effect = effect,
     type = type.toModel(),
-    group = group.toModel()
+    group = group.toModel(),
+    bdoCodexId = bdoCodexId
 )
 
 fun AlchemyItem.toDto(): AlchemyItemDto = AlchemyItemDto(
     name = name,
     effect = effect,
     type = type.toDto(),
-    group = group.toDto()
+    group = group.toDto(),
+    bdoCodexId = bdoCodexId
 )

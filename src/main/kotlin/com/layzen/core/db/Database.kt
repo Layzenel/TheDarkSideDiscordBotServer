@@ -1,6 +1,7 @@
 package com.layzen.core.db
 
 import com.layzen.core.db.models.AlchemyItemDto
+import com.layzen.core.db.models.AncientAnvilDto
 import com.layzen.core.db.models.CrownItemDto
 import com.layzen.core.db.models.GearScoreItemDto
 import com.layzen.core.db.models.TreasureItemDto
@@ -17,4 +18,5 @@ interface Database {
     val collectionGearScore: CoroutineCollection<GearScoreItemDto>
     val collectionCrowns: CoroutineCollection<CrownItemDto>
     val collectionAlchemy: CoroutineCollection<AlchemyItemDto>
+    val collectionAncientAnvil: CoroutineCollection<AncientAnvilDto>
 }

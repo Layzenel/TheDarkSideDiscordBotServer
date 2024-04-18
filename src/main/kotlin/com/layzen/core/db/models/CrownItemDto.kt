@@ -5,7 +5,7 @@ import org.bson.codecs.pojo.annotations.BsonId
 import org.bson.types.ObjectId
 
 data class CrownItemDto(
-    @BsonId val crownId: String = ObjectId().toString(),
+    @BsonId val crownId: ObjectId = ObjectId(),
     val suitDetailName: String,
     val crownsCount: String,
     val valksCount: String,
@@ -13,7 +13,7 @@ data class CrownItemDto(
 )
 
 fun CrownItemDto.toModel(): CrownItem = CrownItem(
-    crownId = crownId,
+    crownId = crownId.toString(),
     suitDetailName = suitDetailName,
     crownsCount = crownsCount,
     valksCount = valksCount,
